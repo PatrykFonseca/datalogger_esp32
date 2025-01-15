@@ -176,10 +176,6 @@ void calibrateButtons() {
   return;
 }
 
-
-
-
-
 void setup() {
    // set up the LCD's number of columns and rows:
   lcd.begin(16, 2);
@@ -189,7 +185,6 @@ void setup() {
   delay(1000);
 
   calibrateButtons();
-  
 
   pinMode(LCD_RS, OUTPUT);
   pinMode(LCD_EN, OUTPUT);
@@ -197,9 +192,6 @@ void setup() {
   pinMode(LCD_D5, OUTPUT);
   pinMode(LCD_D6, OUTPUT);
   pinMode(LCD_D7, OUTPUT);
-
-  
-
 
   Serial.begin(115200);
 
@@ -212,7 +204,6 @@ void setup() {
     Serial.println("Failed to initialize MAX31865 (Sensor 2)");
     while (1);
   }
-
 
   // Initialize I2C and INA260
   Wire.begin(I2C_SDA, I2C_SCL);
@@ -227,8 +218,6 @@ void setup() {
   }
   ina228.setShunt(0.015,10.0);
   ina228.setMode(INA228_MODE_CONTINUOUS);
-  float averagingcount = ina228.getAveragingCount();
-  Serial.printf("INA228, Averaging: %f\n",averagingcount);
 
   // Initialize LittleFS
   if (!LittleFS.begin()) {
